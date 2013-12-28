@@ -1,4 +1,4 @@
 osx-scripts
 ===========
 
-Useful scripts for OS X
+Miscallenous useful scripts written for OS X.
