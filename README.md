@@ -1,4 +1,4 @@
 osx-scripts
 ===========
 
-Miscallenous useful scripts written for OS X.
+Miscallenous useful BASH scripts primarily for OSX and Ubuntu.
