@@ -4,7 +4,7 @@
 alias irc="ssh -t usernamen@domain.tld screen -DRU"
 
 # Resumable encrypted file transfers, used exactly like scp
-alias rscp="rsync -avzP"
+alias rscp="rsync -avzP --rsh=ssh"
 
 # Resume rscp transfer, just replace rscp with rscp-resume
 alias rscp-resume="rsync --partial --progress --rsh=ssh"
