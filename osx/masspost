@@ -1,0 +1,25 @@
+#!/bin/bash
+
+if [[ ${1} = "help" ]]
+
+then 
+
+  echo -e "\nmasspost recipients_file.txt \"Mail subject\" mail_content.txt\n\n"
+
+else
+
+for i in $(cat ${1} | sed -n 1'p' | tr ',' '\n')
+
+  do
+
+    Mail -s "${2}" $i < ${3}
+    #echo -e "recipients: \n"$i "\n"
+    #echo -e "subject: \n"${2} "\n"
+    #echo -e "content: \n"$(cat ${3}) "\n"
+
+    echo -e "Sent:" $i "\n\n"
+    sleep 60s
+
+  done
+
+fi
