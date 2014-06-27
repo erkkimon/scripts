@@ -12,3 +12,5 @@ alias rscp-resume="rsync --partial --progress --rsh=ssh"
 # Pushes altered files to github w/ comment given as parameter: pushit "foo bar"
 pushit() { git add -A && git commit -m "$@" && git push ;}
 
+# Download github as zip and unzip it. Give repo name as parameter.
+instantiate() { wget -O .master.temp.zip https://github.com/erkkimon/$@/archive/master.zip && unzip .master.temp.zip && rm .master.temp.zip ;}
