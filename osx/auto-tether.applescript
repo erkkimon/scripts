@@ -1,3 +1,5 @@
+#!/usr/bin/osascript
+
 set iPhoneName to "www.levelapp.fi" -- this assumes your device name is www.levelapp.fi, so fill in your own
 
 on wirelessConnectionAvailable()
