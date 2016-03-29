@@ -17,13 +17,15 @@ dir_for_backups=""
 # No need for slash at the end, but it's recommended to put it there.
 dir_to_be_backed_up=""
 
+timestamp=$(date +%y%m%d)
+
 mysqldump       -u${mysql_username} -p${mysql_user_password} \
                 ${mysql_db_name} > \
-                ${dir_for_backups}${site_address}_db_$(date +%y%m%d).sql
+                ${dir_for_backups}${site_address}_db_${timestamp}.sql
 
-tar cjf         ${dir_for_backups}${site_address}_db_$(date +%y%m%d).sql.tbz \
-                ${dir_for_backups}${site_address}_db_$(date +%y%m%d).sql \
-                && rm ${dir_for_backups}${site_address}_db_$(date +%y%m%d).sql
+tar cjf         ${dir_for_backups}${site_address}_db_${timestamp}.sql.tbz \
+                ${dir_for_backups}${site_address}_db_${timestamp}.sql \
+                && rm ${dir_for_backups}${site_address}_db_${timestamp}.sql
 
-tar cjf         ${dir_for_backups}${site_address}_files_$(date +%y%m%d).tbz \
+tar cjf         ${dir_for_backups}${site_address}_files_${timestamp}.tbz \
                 ${dir_to_be_backed_up}
