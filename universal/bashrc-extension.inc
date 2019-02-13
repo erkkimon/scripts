@@ -14,3 +14,6 @@ pushit() { git add --all :/ && git commit -m "$@" && git push ;}
 
 # Download github as zip and unzip it. Give repo name as parameter.
 instantiate() { wget -O .master.temp.zip https://github.com/erkkimon/$@/archive/master.zip && unzip .master.temp.zip && rm .master.temp.zip ;}
+
+# Re-encode video to DVD quality
+dvdify() { ffmpeg -i $@ -c:v libx264 -crf 23 ${@}.dvdquality.mp4;}
