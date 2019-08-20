@@ -17,3 +17,6 @@ instantiate() { wget -O .master.temp.zip https://github.com/erkkimon/$@/archive/
 
 # Re-encode video to DVD quality
 dvdify() { ffmpeg -i $@ -c:v libx264 -crf 23 ${@}.dvdquality.mp4;}
+
+# Compress PDF, note that you will lose active links
+pdfcompress() { gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${@}.compressed.pdf ${@} ;}
