@@ -22,5 +22,8 @@ dvdify() { ffmpeg -i $@ -c:v libx264 -crf 23 ${@}.dvdquality.mp4;}
 # Compress PDF, note that you will lose active links
 pdfcompress() { gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dPDFSETTINGS=/printer -dNOPAUSE -dQUIET -dBATCH -sOutputFile=${@}.compressed.pdf ${@} ;}
 
+# Compress image
+imgcompress() { ffmpeg -i ${@} -q:v 10 ${@}-compressed.jpg }
+
 # Convert PDF to JPG
 pdf2jpg() { convert -density 300 ${@} ${@}-%04d.jpg ;}
