@@ -27,3 +27,6 @@ imgcompress() { ffmpeg -i ${@} -q:v 10 ${@}-compressed.jpg }
 
 # Convert PDF to JPG
 pdf2jpg() { convert -density 300 ${@} ${@}-%04d.jpg ;}
+
+# Combine four 9:16 images into one 16:9 image
+4to1() { for i in ${@}*; do convert $i -resize 400x900 ${i}.sm.jpg; done; convert +append ${@}*.sm.jpg ${@}combined.jpg; rm ${@}*.sm.jpg }
