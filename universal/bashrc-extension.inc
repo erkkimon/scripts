@@ -33,3 +33,6 @@ pdf2jpg() { convert -density 300 ${@} ${@}-%04d.jpg ;}
 
 # Shrink MP3
 shrinkMP3() { lame -b 16 ${@} ${@}-16-bit.mp3 }
+
+# Flush DNS on OSX, sorry not universal but adding it here does the job
+dnsflush() { sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache }
