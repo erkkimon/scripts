@@ -36,3 +36,6 @@ shrinkMP3() { lame -b 16 ${@} ${@}-16-bit.mp3 }
 
 # Flush DNS on OSX, sorry not universal but adding it here does the job
 dnsflush() { sudo killall -HUP mDNSResponder;sudo killall mDNSResponderHelper;sudo dscacheutil -flushcache }
+
+# Scale video down to 720 p
+scalevideo() { ffmpeg -i ${@} -vf scale=1080:-1 ${@}.720p.mp4 }
